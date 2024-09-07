@@ -38,7 +38,9 @@ def get_data(word, locate):
                   lang="ko",
                   caller="pcweb"
                   )
-    headers = {"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 12_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15"}
+    headers = {
+                "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 12_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+                "Referer": "https://map.naver.com/"}
     r = web.get(url, params, headers=headers)
     r.raise_for_status()
     return r.json().get("all")
